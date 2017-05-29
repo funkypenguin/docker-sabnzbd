@@ -1,3 +1,8 @@
+A fork of linuxserver/sabnzbd to include the mp4_automator package.
+
+Updated 30 May 2017 for Radarr support in mp4_automator. See (here)[https://www.funkypenguin.co.nz/note/docker-container-for-sabnzbd-with-sickbeard-mp4-automater-released/] for details
+---
+
 [linuxserverurl]: https://linuxserver.io
 [forumurl]: https://forum.linuxserver.io
 [ircurl]: https://www.linuxserver.io/irc/
