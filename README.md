@@ -1,6 +1,7 @@
-A fork of linuxserver/sabnzbd to include the mp4_automator package.
+A fork of [linuxserver/sabnzbd](https://github.com/linuxserver/docker-sabnzbd) to include the mp4_automator package.
 
-Updated 30 May 2017 for Radarr support in mp4_automator. See (here)[https://www.funkypenguin.co.nz/note/docker-container-for-sabnzbd-with-sickbeard-mp4-automater-released/] for details
+__Update__ : 30 May 2017 : for Radarr support in mp4_automator. See [here](https://www.funkypenguin.co.nz/note/docker-container-for-sabnzbd-with-sickbeard-mp4-automater-released/) for details
+
 ---
 
 [linuxserverurl]: https://linuxserver.io
@@ -39,7 +40,7 @@ linuxserver/sabnzbd
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -67,7 +68,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
-## Setting up the application 
+## Setting up the application
 Initial setup is done from the http port.
 Https access for sabnzbd needs to be enabled in either the intial setup wizard or in the configure settings of the webui, be sure to use 9090 as port for https.
 See here for info on some of the switch settings for sabnzbd http://wiki.sabnzbd.org/configure-switches
@@ -90,4 +91,4 @@ issues with alpine version of python and 1.10 branch of sab.
 + **14.03.16:** Refresh image to pick up latest RC
 + **23.01.15:** Refresh image.
 + **14.12.15:** Refresh image to pick up latest beta
-+ **21.08.15:** Intial Release. 
++ **21.08.15:** Intial Release.
