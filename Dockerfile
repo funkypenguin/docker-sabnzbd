@@ -50,6 +50,7 @@ RUN \
 
 # necessary for mp4_automator
  pip install qtfaststart && \
+ pip install --upgrade sabyenc && \
  git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4_automator && \
 
 # cleanup
