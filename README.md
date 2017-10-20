@@ -8,6 +8,8 @@ __Update__ : 30 May 2017 : for Radarr support in mp4_automator. See [here](https
 [forumurl]: https://forum.linuxserver.io
 [ircurl]: https://www.linuxserver.io/irc/
 [podcasturl]: https://www.linuxserver.io/podcast/
+[appurl]: http://sabnzbd.org/
+[hub]: https://hub.docker.com/r/linuxserver/sabnzbd/
 
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
@@ -17,13 +19,11 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/sabnzbd
-[![](https://images.microbadger.com/badges/image/linuxserver/sabnzbd.svg)](http://microbadger.com/images/linuxserver/sabnzbd "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/sabnzbd.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/sabnzbd.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io-hub-built/linuxserver-sabnzbd)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io-hub-built/job/linuxserver-sabnzbd/)
-[hub]: https://hub.docker.com/r/linuxserver/sabnzbd/
+[![](https://images.microbadger.com/badges/version/linuxserver/sabnzbd.svg)](https://microbadger.com/images/linuxserver/sabnzbd "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/sabnzbd.svg)](https://microbadger.com/images/linuxserver/sabnzbd "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/sabnzbd.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/sabnzbd.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-sabnzbd)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-sabnzbd/)
 
 SABnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.
 
-[![sabnzbd](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png)][saburl]
-[saburl]: http://sabnzbd.org/
+[![sabnzbd](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png)][appurl]
 
 ## Usage
 
@@ -37,6 +37,17 @@ docker create --name=sabnzbd \
 -p 8080:8080 -p 9090:9090 \
 linuxserver/sabnzbd
 ```
+
+## Tags
+
+You can choose ,using a tag, to use the unstable branch.
+Stable is the default and requires no tag
+
+(at times both branches may have the same version, but the stable/latest branch should never contain an alpha/beta/rc version)
+
+Add the tag, if required, to the linuxserver/sabnzbd line of the run/create command in the following format:-
+
+`linuxserver/sabnzbd:unstable`
 
 ## Parameters
 
@@ -79,9 +90,20 @@ See here for info on some of the switch settings for sabnzbd http://wiki.sabnzbd
 * Shell access whilst the container is running: `docker exec -it sabnzbd /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f sabnzbd`
 
+* container version number 
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' sabnzbd`
+
+* image version number
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/sabnzbd`
 
 ## Versions
 
++ **12.07.17:** Add inspect commands to README, move to jenkins build and push.
++ **10.04.17:** Bump to 2.0 Release.
++ **25.02.17:** Switch to nobetas repo for master/latest branch and add unstable branch.
++ **08.02.17:** Add pythonioenconding=utf8 as env.
 + **15.09.16:** Compile par2 multicore as per latest info sabnzbd git [readme](https://github.com/sabnzbd/sabnzbd#resolving-dependencies)
 + **11.09.16:** Bump to release of 1.10
 + **09.09.16:** Rebase back to xenial,
